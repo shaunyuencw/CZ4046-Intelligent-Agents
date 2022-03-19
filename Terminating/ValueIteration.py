@@ -9,6 +9,18 @@ ACTIONS = [(-1,0), (0,-1), (1,0), (0,1)] # Up Left Down Right (WASD)
 
 # Setting up initial Enviornment (row,column) format
 
+# Lecture Example
+# REWARD = -0.01
+# GAMMA = 0.99
+# EPSILON = 10**(-6)
+
+# NUM_ROWS = 3
+# NUM_COLS = 4
+
+# good_reward = [(0,3)]
+# bad_reward = [(1,3)]
+# walls = [(1,1)]
+
 # Assignment Part 1
 REWARD = -0.04
 GAMMA = 0.99
@@ -20,6 +32,20 @@ NUM_COLS = 6
 good_reward = [(0,0), (0,2), (0,5), (1,3), (2,4), (3,5)]
 bad_reward = [(1,1), (1,5), (2,2), (3,3), (4,4)]
 walls = [(0,1), (1,4), (4,1), (4,2), (4,3)]
+
+# Assignment Part 2
+# REWARD = -0.04
+# GAMMA = 0.99 
+# EPSILON = 10**(-6)
+
+# NUM_ROWS = 6
+# NUM_COLS = 6
+
+# #START = None
+# START = (5,5)
+# good_reward = [(0,1), (0,4)]
+# bad_reward = [(0,3), (0,5), (4,4)]
+# walls = [(4,1), (4,2), (4,3), (4,5), (2,0), (2,1), (2,2), (2,3), (2,4), (0,0), (0,2)]
 
 environment = [ [0] * NUM_COLS for i in range(NUM_ROWS)]
 
@@ -113,7 +139,7 @@ def get_optimal_policy(environment):
 
     for row in range(NUM_ROWS):
         for col in range(NUM_COLS):
-            # ! No action if terminal state
+            #! No action if terminal state
             if (row, col) in walls or (row,col) in good_reward or (row,col) in bad_reward: # ! Termination States
                 continue
             # Select action that maximizes utility 
